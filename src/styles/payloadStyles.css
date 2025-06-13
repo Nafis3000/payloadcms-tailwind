@@ -1,0 +1,37 @@
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+/* @import 'tailwindcss/preflight.css' layer(base); */
+@import 'tailwindcss/utilities.css' layer(utilities);
+
+/* Support Payload’s dark mode toggle by adding a custom variant */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/* Custom Payload Admin Styling */
+@layer components {
+  /* Custom header styling */
+  .payload-admin-header {
+    @apply bg-gradient-to-r from-purple-600 to-indigo-600 shadow-lg;
+  }
+  
+  /* Custom sidebar styling */
+  .nav--style-pill {
+    @apply bg-white/10 backdrop-blur-sm rounded-lg;
+  }
+  
+  /* Custom button styling */
+  .btn--style-primary {
+    @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all duration-300 shadow-lg hover:shadow-xl;
+  }
+  
+  /* Custom card styling */
+  .dashboard-card {
+    @apply bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow duration-300;
+  }
+}
+
+/* Custom theme variables for Payload */
+@theme {
+  --color-admin-primary: #6366f1;
+  --color-admin-secondary: #8b5cf6;
+  --color-admin-accent: #06b6d4;
+}
